@@ -1,0 +1,2 @@
+import member_type
+import add_res_partner

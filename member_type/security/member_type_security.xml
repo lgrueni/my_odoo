@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.module.category" id="base.module_member_type">
+            <field name="name">Member type</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="group_member_type_config" model="res.groups">
+            <field name="name">Configuration</field>
+            <field name="category_id" ref="base.module_member_type"/>
+        </record>
+
+        <record id="group_member_type_attrib" model="res.groups">
+            <field name="name">Attribution</field>
+            <field name="category_id" ref="base.module_member_type"/>
+        </record>
+    </data>
+</openerp>

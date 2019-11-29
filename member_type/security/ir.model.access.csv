@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_member_type_config,member.type,model_member_type,group_member_type_config,1,1,1,1
+access_member_type_attrib,member.type,model_member_type,group_member_type_attrib,1,0,0,0

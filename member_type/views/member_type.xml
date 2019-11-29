@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <!-- Type of member tree -->
+        <record model="ir.ui.view" id="view_member_type_tree">
+            <field name="name">member.type.tree</field>
+            <field name="model">member.type</field>
+            <field name="type">tree</field>
+            <field name="sequence">10</field>
+            <field name="arch" type="xml">
+                <form string="List of type of member">
+                    <field name="name"/>
+                    <field name="cotisation"/>
+                    <field name="create_uid"/>
+                </form>
+            </field>
+        </record>
+
+        <!-- Type of member form -->
+        <record model="ir.ui.view" id="view_member_type_form">
+            <field name="name">member.type.form</field>
+            <field name="model">member.type</field>
+            <field name="type">form</field>
+            <field name="sequence">20</field>
+            <field name="arch" type="xml">
+                <form>
+                	<group string="General informations">
+                        <field name="name" required="1"/>
+                        <field name="cotisation" required="1"/>
+                    </group>
+                    <group string="Informations">
+                        <field name="create_uid" readonly="1"/>
+                        <field name="create_date" readonly="1"/>
+                        <field name="members" readonly="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record model="ir.actions.act_window" id="member_type">
+			<field name="name">Member type</field>
+			<field name="res_model">member.type</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+        <!-- Menu -->
+        <menuitem name="Type of members" id="menu_member_type" sequence="20" parent="mail.mail_my_stuff" action="member_type" groups="group_member_type_config"/>
+    </data>
+</openerp>
