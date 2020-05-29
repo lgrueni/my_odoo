@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="templates" xml:space="preserve">
+    <t t-extend="PosWidget">
+        <t t-jquery='div.pads' t-operation='before'>
+            <div id='SubmitOrderButton' class='control-button' style="width:41%;margin-top:2%;margin-bottom:1%;font-size: initial;">
+                <i class="fa fa-cutlery"/>Order
+            </div>
+        </t>
+    </t> 
+</templates>

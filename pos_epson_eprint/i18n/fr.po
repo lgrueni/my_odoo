@@ -1,0 +1,60 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_epson_eprint
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-27 18:41+0000\n"
+"PO-Revision-Date: 2020-05-27 20:59+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: fr\n"
+"X-Generator: Poedit 2.3\n"
+
+#. module: pos_epson_eprint
+#: field:pos.config,eposCategories:0
+msgid "Categories to print"
+msgstr "Carégories à imprimer"
+
+#. module: pos_epson_eprint
+#: help:pos.config,eposPrinterIP:0
+msgid "Enter the IP address of the EPOS printer"
+msgstr "Entrer l'adresse IP de l'imprimante"
+
+#. module: pos_epson_eprint
+#: field:pos.config,eposPrinterId:0
+msgid "Epos ID"
+msgstr "ID Epos"
+
+#. module: pos_epson_eprint
+#: field:pos.config,eposPrinterIP:0
+msgid "Epos printer IP"
+msgstr "ID Epos de l'imprimante"
+
+#. module: pos_epson_eprint
+#: field:pos.config,eposPrinterPort:0
+msgid "Epos printer port"
+msgstr "Port Epos de l'imprimante"
+
+#. module: pos_epson_eprint
+#: view:pos.config:pos_epson_eprint.view_pos_epos_form
+msgid "Epson Epos printer"
+msgstr "Imprimante Epson Epos"
+
+#. module: pos_epson_eprint
+#. openerp-web
+#: code:addons/pos_epson_eprint/static/src/xml/pos_epson_eprint.xml:6
+#, python-format
+msgid "Order"
+msgstr "Commande"
+
+#. module: pos_epson_eprint
+#: help:pos.config,eposPrinterPort:0
+msgid "Port of the printer (8008 or 8043)"
+msgstr "Port de l'imprimante (8008 or 8043)"
