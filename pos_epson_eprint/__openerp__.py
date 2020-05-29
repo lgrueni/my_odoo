@@ -21,7 +21,7 @@
 	"name" : "Restaurant epson eprint",
 	"version" : "0.1",
 	"author" : "Louis Grüninger",
-	"description" : "",
+	"description" : "This module allow you to print on a Epson receipt printer which is connect on the local network. The printer must have the Epos print activate.",
 	"depends" : [
         'point_of_sale',
 	],
