@@ -151,9 +151,8 @@ openerp.pos_epson_eprint = function(instance)
             epsonPrinter.addTextAlign(epsonPrinter.ALIGN_CENTER);
             epsonPrinter.addTextStyle(true, false, false, epsonPrinter.COLOR_1);
             epsonPrinter.addTextSize(2, 2);
-            epsonPrinter.addText('  TABLE N°');
-            epsonPrinter.addText(generalInfos.tableNumber + '\n');
-            epsonPrinter.addText(generalInfos.tableLocation + '\n');
+            epsonPrinter.addText('  TABLE N°' + generalInfos.tableNumber + '  \n');
+            epsonPrinter.addText('  ' + generalInfos.tableLocation + '  \n');
             epsonPrinter.addTextSize(1, 2);
             epsonPrinter.addTextStyle(false, false, false, epsonPrinter.COLOR_1);
             epsonPrinter.addTextAlign(epsonPrinter.ALIGN_LEFT);
