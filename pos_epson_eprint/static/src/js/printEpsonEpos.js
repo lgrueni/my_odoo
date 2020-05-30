@@ -8,7 +8,9 @@ openerp.pos_epson_eprint = function(instance)
     var ePosDev = new epson.ePOSDevice();
     var epsonTryingConnect = false;
     var epsonError = false;
-    var epsonEposId = null;
+    var epsonIpAddress = '';
+    var epsonPort = '';
+    var epsonEposId = '';
 
     module.PosWidget.include({
         build_widgets: function()
@@ -16,12 +18,12 @@ openerp.pos_epson_eprint = function(instance)
             this._super();
 
             //Get the IP and port of the printer set in the pos.config
-            var epsonIpAddress = this.pos.config.eposPrinterIP;
-            var epsonPort = this.pos.config.eposPrinterPort;
+            epsonIpAddress = this.pos.config.eposPrinterIP;
+            epsonPort = this.pos.config.eposPrinterPort;
             epsonEposId = this.pos.config.eposPrinterId;
 
             //Call the connect function
-            epsonConnect(epsonIpAddress, epsonPort, epsonEposId);
+            epsonConnect(epsonIpAddress, epsonPort);
         },        
     }),
 
@@ -143,7 +145,7 @@ openerp.pos_epson_eprint = function(instance)
             var d = new Date();
             var date = d.getDate() +'.'+(d.getMonth()+1)+'.'+d.getFullYear();
             var hour = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
-
+            
             epsonPrinter.addLayout(epsonPrinter.LAYOUT_RECEIPT, 800, 0, 0, 0, 0, 0);
             epsonPrinter.addTextAlign(epsonPrinter.ALIGN_LEFT);
             epsonPrinter.addText(date + '\n' + hour);
@@ -159,10 +161,9 @@ openerp.pos_epson_eprint = function(instance)
             epsonPrinter.addText('==================\n');
             epsonPrinter.addFeedLine(1);
             dataToPrint.forEach(element => {
-                epsonPrinter.addText(_t(element.quantity));
+                epsonPrinter.addText(element.quantity);
                 epsonPrinter.addTextPosition(50);
-                epsonPrinter.addText(_t(element.name));
-                epsonPrinter.addText('\n');
+                epsonPrinter.addText(element.name + '\n');
                 epsonPrinter.addFeedLine(1);
             });
             epsonPrinter.addText('==================\n');
@@ -180,8 +181,11 @@ openerp.pos_epson_eprint = function(instance)
     {
         var self = this;
 
+        ePosDev.disconnect();
+
         epsonTryingConnect = true;
         epsonError = false;
+
         ePosDev.connect(ipAddress, port, callback);
     }
 
@@ -208,7 +212,11 @@ openerp.pos_epson_eprint = function(instance)
             epsonPrinter = devobj;
             epsonPrinter.timeout = 60000;
             epsonTryingConnect = false;
-            //printer.onreceive = function (res) { alert(_t("Imprimante cuisine CONNECTÉE")); };
+            epsonPrinter.onreceive = function (success, code) 
+            {
+                if(code != 0)
+                    alert("Error from epson:\n" + code);
+            };
         } 
         else 
         {
