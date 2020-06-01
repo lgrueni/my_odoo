@@ -1,0 +1,66 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_continous_improvment_form">
+            <field name="name">continous.improvement.form</field>
+            <field name="model">continous.improvement</field>
+            <field name="type">form</field>
+            <field name="sequence">10</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <h1><field name='name' placeholder="Subject"/></h1>
+                        <group>
+                            <field name="category"/>
+                            <field name="message"/>
+                        </group>
+                    </sheet>
+                </from>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_continous_improvment_tree">
+            <field name="name">continous.improvement.tree</field>
+            <field name="model">continous.improvement</field>
+            <field name="type">tree</field>
+            <field name="sequence">20</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="category"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_continous_improvment_search">
+            <field name="name">continous.improvement.search</field>
+            <field name="model">continous.improvement</field>
+            <field name="type">search</field>
+            <field name="sequence">10</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="category"/>
+                </search>
+            </field>
+        </record>
+
+        
+
+        <record model="ir.actions.act_window" id="my_continous_improvement">
+			<field name="name">My improvement</field>
+			<field name="res_model">continous.improvement</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+            <field name="domain">[('created_by', '=', uid)]</field>
+		</record>
+        <record model="ir.actions.act_window" id="for_me_continous_improvement">
+			<field name="name">Improvement for me</field>
+			<field name="res_model">continous.improvement</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+        <menuitem name="Continous improvement" id="menu_parent_1_continous_improvement" sequence=""/>
+        <menuitem name="Continous improvement" id="menu_parent_2_continous_improvement" sequence="10"/>
+        <menuitem name="My ideas" id="menu_my_continous_improvement" sequence="10" parent="menu_parent_2_continous_improvement" action="my_continous_improvement" groups="group_user_continous_improvement"/>
+        <menuitem name="For me" id="menu_continous_improvement" sequence="20" parent="menu_parent_2_continous_improvement" action="for_me_continous_improvement" groups="group_user_continous_improvement"/>
+        
+    </data>
+</openerp>
