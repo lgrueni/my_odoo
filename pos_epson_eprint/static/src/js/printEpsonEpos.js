@@ -16,14 +16,16 @@ openerp.pos_epson_eprint = function(instance)
         build_widgets: function()
         {
             this._super();
+            if(this.pos.config.eposPrinterIP)
+            {
+                //Get the IP and port of the printer set in the pos.config
+                epsonIpAddress = this.pos.config.eposPrinterIP;
+                epsonPort = this.pos.config.eposPrinterPort;
+                epsonEposId = this.pos.config.eposPrinterId;
 
-            //Get the IP and port of the printer set in the pos.config
-            epsonIpAddress = this.pos.config.eposPrinterIP;
-            epsonPort = this.pos.config.eposPrinterPort;
-            epsonEposId = this.pos.config.eposPrinterId;
-
-            //Call the connect function
-            epsonConnect(epsonIpAddress, epsonPort);
+                //Call the connect function
+                epsonConnect(epsonIpAddress, epsonPort);
+            }
         },        
     }),
 

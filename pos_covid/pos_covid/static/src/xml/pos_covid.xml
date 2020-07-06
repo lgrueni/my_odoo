@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="covidReceipt">
+        <receipt align='center' width='45' value-thousands-separator='' >          
+            <div bold='on' size='double'>Relevé des coordonnées</div>
+            <br/>
+            <p>
+                Suite aux directives de l'OFSP, nous devons<br/>
+                établir le traçage de nos clients du restaurant.<br/>
+                Nous vous prions donc de remplir ce formulaire<br/>
+                et de la donner à la caisse du buffet
+            </p>
+            <br/>
+            <p>Nom:___________________________________________</p>
+            <br/>
+            <p>Prénom:________________________________________</p>
+            <br/>
+            <p>Rue:___________________________________________</p>
+            <br/>
+            <p>NPA:___________________________________________</p>
+            <br/>
+            <p>Localité:______________________________________</p>
+            <br/>
+            <p>Pays:__________________________________________</p>
+            <br/>
+            <p>Un grand merci pour votre compréhension et<br/>bon apétit</p>
+        </receipt>
+    </t>
+</templates>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="index" name="pos_covid index" inherit_id="point_of_sale.index">
+            <xpath expr="//link[@id='pos-stylesheet']" position="after">
+                <link rel="stylesheet" href="/pos_covid/static/src/css/pos_payment_terminal.css" id="pos_covid-stylesheet"/>
+            </xpath>
+        </template>
+        
+        <template id="assets_backend" name="point_of_sale assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/pos_covid/static/src/js/pos_covid.js"></script>
+            </xpath>
+        </template>
+    </data>
+</openerp>
