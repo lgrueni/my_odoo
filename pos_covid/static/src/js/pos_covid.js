@@ -46,8 +46,13 @@ openerp.pos_covid = function(instance)
 
             if(order.askCovidPrint())
             {
+                var d = new Date();
+                var date = d.getDate() +'.'+(d.getMonth()+1)+'.'+d.getFullYear();
+                var receipt = {
+                    date: date,
+                }
                 this.pos.proxy.print_receipt(QWeb.render('covidReceipt',{
-                    receipt: {}, widget: this,
+                    receipt: receipt, widget: this,
                 }));
             }
             this._super();            
