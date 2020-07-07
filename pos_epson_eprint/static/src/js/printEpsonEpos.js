@@ -101,7 +101,12 @@ openerp.pos_epson_eprint = function(instance)
 
                     //Ask for the number and the location of the table
                     var tableNumber = window.prompt("Scan or write a number of table");
+                    if(tableNumber == null)
+                        break;
                     var tableLocation = window.prompt("Scan or write the location of the table ");
+                    if (tableLocation == null)
+                        break;
+
 
                     if (!isNaN(tableNumber) && tableLocation)
                     {
