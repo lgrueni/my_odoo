@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_all_survey_form">
+            <field name="name">basic.survey.all.form</field>
+            <field name="model">basic.survey</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="text" required="1"/>
+                        </group>
+                        <group string="General informations">
+                            <field name="create_uid" readonly="1"/>
+                            <field name="create_date" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_all_survey_tree">
+            <field name="name">basic.survey.all.tree</field>
+            <field name="model">basic.survey</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="create_date"/>
+                    <field name="create_uid"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_my_survey">
+			<field name="name">My survey</field>
+			<field name="res_model">basic.survey</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+            <field name="view_ids"></field>
+            <field name="domain">[('create_uid','=',uid)]</field>
+		</record>
+
+        <record model="ir.actions.act_window" id="action_all_survey">
+			<field name="name">All survey</field>
+			<field name="res_model">basic.survey</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+            <field name="view_ids"></field>
+		</record>
+
+
+        <menuitem name="Surveys" id="menu_survey" sequence="10" groups="group_basic_survey_user"/>
+        <menuitem name="Surveys" id="menu_survey_child" sequence="10" parent="menu_survey" groups="group_basic_survey_user"/>
+        <menuitem name="My surveys" id="menu_my_surveys" sequence="10" parent="menu_survey_child" action="action_my_survey" groups="group_basic_survey_user"/>
+        <menuitem name="All surveys" id="menu_all_surveys" sequence="20" parent="menu_survey_child" action="action_all_survey" groups="group_basic_survey_manage"/>
+    </data>
+</openerp>

@@ -45,6 +45,14 @@ openerp.pos_epson_eprint = function(instance)
 			});
         },
     });
+
+    module.PaymentScreenWidget = module.PaymentScreenWidget.extend({
+        validate_order: function(option)
+        {
+            this.pos.pos_widget.$('#SubmitOrderButton').removeClass('highlight');
+            this._super(option);
+        }
+    });
     
     module.Order = module.Order.extend({
         //Function from pos.restaurant
@@ -155,6 +163,7 @@ openerp.pos_epson_eprint = function(instance)
             
             epsonPrinter.addLayout(epsonPrinter.LAYOUT_RECEIPT, 800, 0, 0, 0, 0, 0);
             epsonPrinter.addTextAlign(epsonPrinter.ALIGN_LEFT);
+            //epsonPrinter.addTextRotate(true);
             epsonPrinter.addText(date + '\n' + hour);
             epsonPrinter.addFeedLine(1);
             epsonPrinter.addTextAlign(epsonPrinter.ALIGN_CENTER);
@@ -181,6 +190,7 @@ openerp.pos_epson_eprint = function(instance)
             epsonPrinter.addFeedLine(2);
             epsonPrinter.addCut(epsonPrinter.CUT_FEED);
             epsonPrinter.send();
+            this.pos.pos_widget.$('#SubmitOrderButton').addClass('highlight');
         },
     });
 

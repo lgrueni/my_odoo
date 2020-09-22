@@ -42,6 +42,7 @@ openerp.pos_covid = function(instance)
     module.PaymentScreenWidget.include({
         validate_order: function(line){
             var self = this;
+            this._super();  
             var order = self.pos.get('selectedOrder');
 
             if(order.askCovidPrint())
@@ -54,8 +55,7 @@ openerp.pos_covid = function(instance)
                 this.pos.proxy.print_receipt(QWeb.render('covidReceipt',{
                     receipt: receipt, widget: this,
                 }));
-            }
-            this._super();            
+            }    
         },
     });
 }

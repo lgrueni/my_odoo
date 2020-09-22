@@ -42,7 +42,6 @@
             </field>
         </record>
 
-        
 
         <record model="ir.actions.act_window" id="my_continous_improvement">
 			<field name="name">My improvement</field>
